@@ -1,0 +1,16 @@
+.cImage {
+  position: relative;
+}
+.cImage a {
+  text-decoration: none;
+  color: rgb(5, 23, 39);
+}
+.imgDesc {
+  position: absolute;
+  z-index: 2;
+}
+img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}

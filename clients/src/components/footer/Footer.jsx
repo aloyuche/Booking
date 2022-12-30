@@ -44,7 +44,9 @@ const Footer = () => {
           <li className="fListItem">Terms & conditions</li>
         </ul>
       </div>
-      <div className="fText">Copyright © 2022 Lamabooking.</div>
+      <div className="text-center">
+        &copy; 2022 All right Reserve copyright of CheloyTec{" "}
+      </div>
     </div>
   );
 };

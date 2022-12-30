@@ -10,10 +10,10 @@ const cities = () => {
       </p>
       <div className="flex flex-wrap justify-between mx-2">
         <div className="hover:transform hover:scale-105 hover:translate-x-2">
-          <Link to={"/"}>
-            <div className="w-100 h-15 shadow-md shadow-gray-700">
+          <Link to={"/"} className="no-underline">
+            <div className="w-100 h-20 shadow-md shadow-gray-700">
               <img
-                src="/images/city2.jpg"
+                src="/images/c2.jpg"
                 alt="The guide"
                 className="w-wf h-100 object-cover mb-2 rounded-md "
               />
@@ -25,10 +25,10 @@ const cities = () => {
           </Link>
         </div>
         <div className="hover:transform hover:scale-105 hover:translate-x-2">
-          <Link to={"/"}>
-            <div className="w-100 h-15 shadow-md shadow-gray-700">
+          <Link to={"/"} className="no-underline">
+            <div className="w-100 h-20 shadow-md shadow-gray-700">
               <img
-                src="/images/County.jpg"
+                src="/images/c1.jpg"
                 alt="The guide"
                 className="w-wf h-100 object-cover mb-2 rounded-md"
               />
@@ -40,10 +40,10 @@ const cities = () => {
           </Link>
         </div>
         <div className="hover:transform hover:scale-105 hover:translate-x-2">
-          <Link to={"/"}>
-            <div className="w-100 h-15 shadow-md shadow-gray-700">
+          <Link to={"/"} className="no-underline">
+            <div className="w-100 h-20 shadow-md shadow-gray-700">
               <img
-                src="/images/m2.jpg"
+                src="/images/c3.jpg"
                 alt="The guide"
                 className="w-wf h-100 object-cover mb-2 rounded-md"
               />
@@ -55,10 +55,10 @@ const cities = () => {
           </Link>
         </div>
         <div className="hover:transform hover:scale-105 hover:translate-y-2">
-          <Link to={"/"}>
-            <div className="w-100 h-15 shadow-md shadow-gray-700">
+          <Link to={"/"} className="no-underline">
+            <div className="w-100 h-20 shadow-md shadow-gray-700">
               <img
-                src="/images/m6.jpg"
+                src="/images/c7.jpg"
                 alt="The guide"
                 className="w-wf h-100 object-cover mb-2 rounded-md"
               />
@@ -68,10 +68,10 @@ const cities = () => {
           </Link>
         </div>
         <div className="hover:transform hover:scale-105 hover:translate-x-4">
-          <Link to={"/"}>
-            <div className="w-100 h-15 shadow-md shadow-gray-700">
+          <Link to={"/"} className="no-underline">
+            <div className="w-100 h-20 shadow-md shadow-gray-700">
               <img
-                src="/images/m5.jpg"
+                src="/images/c5.jpg"
                 alt="The guide"
                 className="w-wf h-100 object-cover mb-2 rounded-md"
               />
