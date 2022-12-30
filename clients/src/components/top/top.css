@@ -1,7 +1,8 @@
-.cImage {
+/* .cImage {
   position: relative;
-}
+} */
 .cImage a {
+  margin-top: 30px;
   text-decoration: none;
   color: rgb(5, 23, 39);
 }

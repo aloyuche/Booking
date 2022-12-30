@@ -1,0 +1,22 @@
+.itemHotel {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  border: 1px solid #ccc;
+  justify-content: space-between;
+  border-radius: 6px;
+}
+.itemhotelsCol:first-child,
+.itemhotelsCol:nth-child(3) {
+  flex: 1;
+}
+.itemhotelsCol:nth-child(2) {
+  flex: 2;
+}
+
+.itemhotelsCol img {
+  height: 200px;
+  width: 100%;
+  border-radius: 6px;
+  object-fit: cover;
+}

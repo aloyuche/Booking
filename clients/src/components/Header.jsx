@@ -9,10 +9,12 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import "react-datepicker/dist/react-datepicker.css"; // theme css file
 import { format } from "date-fns";
-import hotels from "../pages/hotelas/Hotels";
+import { Link, useNavigate } from "react-router-dom";
+// import hotels from "../pages/hotelas/Hotels";
 // import { format } from "date-fns";
 
 const Header = ({ type }) => {
+  const [destination, setDestination] = useState("");
   const [openOptions, setOpenOptions] = useState(false);
   const [options, setOptions] = useState({
     adult: 1,
@@ -29,6 +31,8 @@ const Header = ({ type }) => {
     },
   ]);
 
+  const navigate = useNavigate();
+
   const handleOption = (name, operation) => {
     setOptions((prev) => {
       return {
@@ -38,12 +42,18 @@ const Header = ({ type }) => {
     });
   };
 
+  const handleSearch = () => {
+    navigate("/hotels", { state: { destination, date, options } });
+  };
+
   return (
     <div className="bg-gradient-to-r from-black to-slate-600 p-3 px-3">
       <div className="flex flex-row justify-between pt-4">
-        <div className="flex text-orange-600 text-3xl font-bold px-5">
-          <h1>CHELOYTEC</h1>
-        </div>
+        <Link to={"/"} className="no-underline">
+          <div className="flex text-orange-600 text-3xl font-bold px-5">
+            <h1>CHELOYTEC</h1>
+          </div>
+        </Link>
         <div className="flex px-5">
           <p
             type="button"
@@ -79,7 +89,7 @@ const Header = ({ type }) => {
         </div>
       </div>
 
-      {type !== hotels && (
+      {type !== "smallHeader" && (
         <>
           {" "}
           <div className="tit">
@@ -98,11 +108,12 @@ const Header = ({ type }) => {
           </div>
           {/* {type !== "smallHeader" && ( */}
           {/* <div className="items-center "> */}
-          <div className="flex w-100 h-6 rounded-md bg-white border-2 content-center shadow-sm shadow-neutral-500 border-orange-400 justify-between items-center relative cursor-pointer top-12">
-            <div className="flex w-sm rounded-md cursor-pointer py-2 border-r-2 hover:duration-200 translate-x-3 border-orange-500 text-center">
+          <div className=" search flex w-100 h-6 rounded-md bg-white border-2 content-center shadow-sm shadow-neutral-500 border-orange-400 justify-between items-center relative cursor-pointer top-12">
+            <div className="search-item flex w-sm rounded-md cursor-pointer py-2 border-r-2 hover:duration-200 translate-x-3 border-orange-500 text-center">
               <FaBed className="text-gray-400" size={40} />
               <input
                 type="text"
+                onChange={(e) => setDestination(e.target.value)}
                 placeholder="Where are you going"
                 className="rounded-md space-x-2 "
               />
@@ -123,6 +134,7 @@ const Header = ({ type }) => {
                   moveRangeOnFirstSelection={false}
                   ranges={date}
                   className="absolute top-16 flex-col  bg-white space-x-1 text-gray-500 py-2 w-30 mr-2 shadow-2xl shadow-gray-600 "
+                  minDate={new Date()}
                 />
               )}
             </div>
@@ -205,7 +217,7 @@ const Header = ({ type }) => {
               )}
             </div>
             <div className="flex rounded-md w-sm text-center cursor-pointer py-2 items-center">
-              <button className=" p-2 px-4">
+              <button className=" p-2 px-4" onClick={handleSearch}>
                 <GoSearch size={40} />
               </button>
             </div>

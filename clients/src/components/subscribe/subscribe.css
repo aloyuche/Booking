@@ -1,0 +1,21 @@
+.Subscribe {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
+}
+.subscribeTitle {
+  text-transform: uppercase;
+  letter-spacing: 2;
+  color: brown;
+}
+.subscribeDesc {
+  letter-spacing: 1.3;
+}
+.subscribeInput input {
+  border: none;
+}
+.subscribeInput button:hover {
+  background-color: coral;
+}

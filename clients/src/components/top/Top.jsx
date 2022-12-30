@@ -7,18 +7,11 @@ import { Link } from "react-router-dom";
 const Top = () => {
   return (
     <>
-      <Carousel
-        autoplay={true}
-        infiniteLoop={true}
-        showIndicators={false}
-        showArrows={true}
-        transitionTime={1500}
-        showStatus={false}
-      >
+      <Carousel autoPlay={true} infiniteLoop={true} transitionTime={1500}>
         <div className="cImage">
           <Link to={"/"}>
-            <img src="/images/c3.jpg" alt="" />
-            <div className="imgDesc">
+            <img src="/images/c3.jpg" alt="First City" />
+            <div className="imgDesc mt-5 pt-3">
               <h2 className="no-underline">First City</h2>
               <p className="-top-3">13 properties</p>
             </div>
@@ -27,7 +20,7 @@ const Top = () => {
         <div className="cImage">
           <Link to={"/"}>
             <img src="/images/c6.jpg" alt="" />
-            <div className="imgDesc">
+            <div className="imgDesc mt-5 pt-3">
               <h2 className="imgTitile">Bongoro</h2>
               <p className="-top-2">10 properties</p>
             </div>
@@ -36,7 +29,7 @@ const Top = () => {
         <div className="cImage">
           <Link to={"/"}>
             <img src="/images/city4.jpg" alt="" />
-            <div className="imgDesc">
+            <div className="imgDesc mt-5 pt-3">
               <h2 className="imgTitile">The Shaw</h2>
               <p className="imgPrty">Zen land</p>
             </div>
@@ -45,7 +38,7 @@ const Top = () => {
         <div className="cImage">
           <Link to={"/"}>
             <img src="/images/c9.jpg" alt="" />
-            <div className="imgDesc">
+            <div className="imgDesc mt-5 pt-3">
               <h2 className="imgTitile">Higher Land</h2>
               <p className="imgPrty">23 properties</p>
             </div>
@@ -54,7 +47,7 @@ const Top = () => {
         <div className="cImage">
           <Link to={"/"}>
             <img src="/images/city7.jpg" alt="" />
-            <div className="imgDesc">
+            <div className="imgDesc mt-5">
               <h2 className="imgTitile">Wander Land</h2>
               <span className="imgPrty">Island Bay</span>
             </div>
