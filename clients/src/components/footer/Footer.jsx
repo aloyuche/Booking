@@ -34,17 +34,14 @@ const Footer = () => {
           <li className="fListItem">Travel Agents </li>
         </ul>
         <ul className="fList">
-          <li className="fListItem">Curtomer Service</li>
+          <li className="fListItem">Customer Service</li>
           <li className="fListItem">Partner Help</li>
           <li className="fListItem">Careers</li>
           <li className="fListItem">Sustainability</li>
           <li className="fListItem">Press center</li>
-          <li className="fListItem">Safety Resource Center</li>
-          <li className="fListItem">Investor relations</li>
-          <li className="fListItem">Terms & conditions</li>
         </ul>
       </div>
-      <div className="text-center">
+      <div className="text-center py-3 border-t-2 border-gray-700">
         &copy; 2022 All right Reserve copyright of CheloyTec{" "}
       </div>
     </div>
