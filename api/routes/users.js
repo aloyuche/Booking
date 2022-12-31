@@ -18,13 +18,6 @@ router.get("/checkauthentication", verifyToken, (req, res, next) => {
   res.send("Hello User you are Logged in");
 });
 
-// router.get("/checkauthentication/:id", verifyToken, (req, res, next) => {
-//   res.send("Hello User you are Logged in");
-// });
-
-// router.get("/checkuser/:id", verifyUser, (req, res, next) => {
-//   res.send("Hello User you are Logged in and you can delete your account");
-// });
 // router.get("/checkadmin/:id", verifyAdmin, (req, res, next) => {
 //   res.send("Hello User you are Logged in and you can delete all account");
 // });
