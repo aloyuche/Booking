@@ -5,10 +5,12 @@ const Hotel = require("./routes/hotels");
 const cookieParse = require("cookie-parser");
 const Room = require("./routes/rooms");
 const Users = require("./routes/users");
+const Cors = require("cors");
 
 const app = express();
 require("dotenv").config();
 
+app.use(Cors());
 app.use(cookieParse());
 app.use(express.json());
 

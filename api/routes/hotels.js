@@ -8,6 +8,8 @@ const {
   deleteHotel,
   getOneHotel,
   getAllHotel,
+  byType,
+  ByCity,
 } = require("../controllers/hotel");
 const { verifyAdmin } = require("../utils/verifyToken");
 
@@ -23,7 +25,11 @@ router.delete("/:id", verifyAdmin, deleteHotel);
 // Get One Hotels
 router.get("/:id", getOneHotel);
 
+// Get Hotels By city
+router.get("/bycity", ByCity);
+
 // Get All Hotels
 router.get("/", getAllHotel);
+router.get("/bytype", byType);
 
 module.exports = router;

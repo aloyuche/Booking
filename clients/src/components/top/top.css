@@ -7,7 +7,7 @@
   color: rgb(5, 23, 39);
 }
 .imgDesc {
-  position: absolute;
+  margin-top: 3px;
   z-index: 2;
 }
 img {

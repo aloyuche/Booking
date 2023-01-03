@@ -4,6 +4,8 @@ import { FaMapMarkedAlt } from "react-icons/fa";
 import PhotoAlbum from "react-photo-album";
 import Subscribe from "../../components/subscribe/Subscribe";
 import Footer from "../../components/footer/Footer";
+import useFetch from "../../hooks/useFetch";
+import { useLocation } from "react-router-dom";
 const Hotel = () => {
   const Photos = [
     {
@@ -42,6 +44,9 @@ const Hotel = () => {
       height: 600,
     },
   ];
+  const location = useLocation();
+  console.log(location);
+  const { data, loading, error, refresh } = useFetch(`/api/hotels`);
   return (
     <>
       <Header type={"smallHeader"} />

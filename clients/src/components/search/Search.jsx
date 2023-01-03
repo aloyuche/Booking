@@ -1,8 +1,8 @@
 import { format } from "date-fns";
 import React, { useState } from "react";
 import { DateRange } from "react-date-range";
-import { GoSearch } from "react-icons/go";
 import { useLocation } from "react-router-dom";
+import useFetch from "../../hooks/useFetch";
 
 const Search = () => {
   const location = useLocation();
@@ -11,6 +11,8 @@ const Search = () => {
 
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState(location.state.date);
+
+  const { data, loading, error } = useFetch(`/hotel?city=${destination}`);
 
   return (
     <div className="Search-Hotels bg-orange-500 rounded-md text-white p-3 m-10">
@@ -97,8 +99,12 @@ const Search = () => {
           </div>
         </div>
         <div className="flex flex-row rounded-md px-2 bg-gray-800 justify-center text-white cursor-pointer text-2xl items-center">
-          <button className=" p-2 px-4 flex gap-1">
-            <GoSearch size={30} /> Search
+          <button
+            className=" p-2 px-4 flex gap-1 btn btn-outline-dark"
+            loading={loading}
+            data={data}
+          >
+            Search
           </button>
         </div>
       </div>

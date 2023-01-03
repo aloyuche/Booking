@@ -7,7 +7,15 @@ import { Link } from "react-router-dom";
 const Top = () => {
   return (
     <>
-      <Carousel autoPlay={true} infiniteLoop={true} transitionTime={1500}>
+      <Carousel
+        autoPlay={true}
+        infiniteLoop={true}
+        showArrows={false}
+        showIndicators={false}
+        showStatus={false}
+        transitionTime={3000}
+        interval={3000}
+      >
         <div className="cImage">
           <Link to={"/"}>
             <img src="/images/c3.jpg" alt="First City" />
@@ -48,7 +56,7 @@ const Top = () => {
           <Link to={"/"}>
             <img src="/images/city7.jpg" alt="" />
             <div className="imgDesc mt-5">
-              <h2 className="imgTitile">Wander Land</h2>
+              <h2 className="imgTitile mt-1">Wander Land</h2>
               <span className="imgPrty">Island Bay</span>
             </div>
           </Link>

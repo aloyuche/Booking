@@ -1,14 +1,15 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./itemhotel.css";
-const ItemHotel = () => {
+const ItemHotel = ({ item }) => {
   return (
     <div className="itemHotel m-3">
       <div className="itemhotelsCol h-20 object-cover w-wf">
-        <img src="/images/city6.jpg" alt="Homey" />
+        <img src={item.photos} alt={item.name} />
       </div>
       <div className="itemhotelsCol flex flex-col justify-between p-2">
         <div className="itemHotelDiv uppercase space-x-3">
-          <h2>Industralized Home</h2>
+          <h2>{item.name}</h2>
         </div>
         <div className="itemHotelsDivs flex flex-row ">
           <div className="itemHotelDiv bg-black text-white p-2 rounded-md items-center text-center">
@@ -30,7 +31,9 @@ const ItemHotel = () => {
           <span>Free Breakfast</span>
         </div>
         <div className=" p-1 bg-gray-900 rounded-sm text-center text-white justify-center">
-          <button>View Deal</button>
+          <Link to={`/hotel/${item._id}`}>
+            <button>View Deal</button>
+          </Link>
         </div>
       </div>
     </div>
