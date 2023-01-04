@@ -9,7 +9,10 @@ const Subscribe = () => {
         Sign up and we'll send the best deals to you
       </p>
       <div className="subscribeInput">
-        <form action="" method="POST">
+        <form
+          action="https://getform.io/f/b26f0ca3-3fd6-42a1-8723-10143e5948ff"
+          method="POST"
+        >
           <input
             type="email"
             placeholder="Enter your email"

@@ -12,11 +12,7 @@ module.exports.createHotels = async (req, res, next) => {
 
 module.exports.updateHotel = async (req, res, next) => {
   try {
-    const hotel = await Hotel.findByIdAndUpdate(
-      req.params.id,
-      { set: req.body },
-      { new: true }
-    );
+    const hotel = await Hotel.findByIdAndUpdate(req.params.id);
     res.status(200).json(hotel);
   } catch (error) {
     next(error);
@@ -42,11 +38,11 @@ module.exports.getOneHotel = async (req, res, next) => {
 module.exports.getAllHotel = async (req, res, next) => {
   const { min, max, ...other } = req.query;
   try {
-    const hotel = await Hotel.find({
+    const hotels = await Hotel.find({
       ...other,
       price: { $gt: min, $lt: max },
     }).limit(req.query.limit);
-    res.status(200).json(hotel);
+    res.status(200).json(hotels);
   } catch (err) {
     next(err);
   }
