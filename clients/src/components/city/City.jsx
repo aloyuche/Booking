@@ -4,8 +4,10 @@ import useFetch from "../../hooks/useFetch";
 
 const City = () => {
   const { data, loading, error } = useFetch(
-    "/hotel/bycity?cities=Alabama_City,Tinapa_Garden,Alaska_Villa"
+    "/hotel/bycity?cities=ALABAMA_CITY,UGWUOCHA_HILL,TINAPA_GARDEN"
   );
+  //fetch data from hotel
+
   console.log(data);
   return (
     <div className="cities">
@@ -31,7 +33,7 @@ const City = () => {
                   <h4 className="space-x-1 uppercase text-red-500 none">
                     Alabama_City
                   </h4>
-                  <span className="text-lg">{data[0]} Properties</span>
+                  <span className="text-lg">231 Properties</span>
                 </Link>
               </div>
               <div className="hover:transform hover:scale-105 hover:translate-x-2">
@@ -46,7 +48,7 @@ const City = () => {
                   <h4 className="space-x-1 uppercase text-red-500 none">
                     Ugwuocha-Hill
                   </h4>
-                  <span className="text-lg">{data[3]} properties</span>
+                  <span className="text-lg">{data[1]} properties</span>
                 </Link>
               </div>
               <div className="hover:transform hover:scale-105 hover:translate-x-2">
@@ -61,7 +63,7 @@ const City = () => {
                   <h4 className="space-x-1 uppercase text-red-500 none">
                     Tinapa_Garden
                   </h4>
-                  <span className="text-lg">{data[1]} properties</span>
+                  <span className="text-lg">{data[2]} properties</span>
                 </Link>
               </div>
               <div className="hover:transform hover:scale-105 hover:translate-x-2">
@@ -76,7 +78,7 @@ const City = () => {
                   <h4 className="space-x-1 uppercase text-red-500 none">
                     Ubudu
                   </h4>
-                  <span className="text-lg">{data[4]} properties</span>
+                  <span className="text-lg">{data[3]} properties</span>
                 </Link>
               </div>
               <div className="hover:transform hover:scale-105 hover:translate-x-2">
