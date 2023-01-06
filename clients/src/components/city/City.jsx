@@ -4,8 +4,9 @@ import useFetch from "../../hooks/useFetch";
 
 const City = () => {
   const { data, loading, error } = useFetch(
-    "http://localhost:5000/api/hotel/bycity?cities=Alabama_City,Tinapa_Garden,Alaska_Villa,Ugwuocha_Hill,Ubudu"
+    "/hotel/bycity?cities=Alabama_City,Tinapa_Garden,Alaska_Villa"
   );
+  console.log(data);
   return (
     <div className="cities">
       <div className="py-6 px-3 w-full mt-10">

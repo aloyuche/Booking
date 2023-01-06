@@ -56,7 +56,6 @@ module.exports.ByCity = async (req, res, next) => {
         return Hotel.countDocuments({ city: city });
       })
     );
-    res.send("Hello City");
     res.status(200).json(list);
   } catch (error) {
     next(error);
