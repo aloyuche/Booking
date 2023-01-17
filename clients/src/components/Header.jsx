@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { AiFillCar } from "react-icons/ai";
 import { FaTaxi, FaPlane, FaCamera, FaBed } from "react-icons/fa";
-import { GiPerson } from "react-icons/gi";
-import { GoSearch } from "react-icons/go";
-import { BsFillCalendarMonthFill } from "react-icons/bs";
 import { DateRange } from "react-date-range";
 import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import "react-datepicker/dist/react-datepicker.css"; // theme css file
 import { format } from "date-fns";
 import { Link, useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faBed,
+  faCalendarDays,
+  faPerson,
+} from "@fortawesome/free-solid-svg-icons";
 // import hotels from "../pages/hotelas/Hotels";
 // import { format } from "date-fns";
 
@@ -108,50 +111,51 @@ const Header = ({ type }) => {
           </div>
           {/* {type !== "smallHeader" && ( */}
           {/* <div className="items-center "> */}
-          <div className=" search flex w-100 h-6 rounded-md bg-white border-2 content-center shadow-sm shadow-neutral-500 border-orange-400 justify-between items-center relative cursor-pointer top-12">
-            <div className="search-item flex w-sm rounded-md cursor-pointer py-2 border-r-2 hover:duration-200 translate-x-3 border-orange-500 text-center">
-              <FaBed className="text-gray-400" size={40} />
+          <div className="headerSearch py-2">
+            <div className="headerSearchItem">
+              <FontAwesomeIcon icon={faBed} className="headerIcon" />
               <input
                 type="text"
+                placeholder="Where are you going?"
+                className="headerSearchInput"
                 onChange={(e) => setDestination(e.target.value)}
-                placeholder="Where are you going"
-                className="rounded-md space-x-2 "
               />
             </div>
-            <div className="flex rounded-md w-sm cursor-pointer content-center ml-5 pl-5 py-3 items-center space-x-2 hover:duration-200 hover:bg-orange-500 hover:text-teal-100 border-r-2 border-orange-500">
-              <BsFillCalendarMonthFill className="text-gray-400" size={30} />
-              <span onMouseEnter={() => setOpenDate(!openDate)}>
-                {" "}
-                {`${format(date[0].startDate, "dd MM yyyy")}, -- ${format(
-                  date[0].endDate,
-                  "dd MM yyyy"
-                )}`}
-              </span>
+            <div className="headerSearchItem">
+              <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
+              <span
+                onClick={() => setOpenDate(!openDate)}
+                className="headerSearchText"
+              >{`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+                date[0].endDate,
+                "MM/dd/yyyy"
+              )}`}</span>
               {openDate && (
                 <DateRange
                   editableDateInputs={true}
                   onChange={(item) => setDate([item.selection])}
                   moveRangeOnFirstSelection={false}
                   ranges={date}
-                  className="absolute top-16 flex-col  bg-white space-x-1 text-gray-500 py-2 w-30 mr-2 shadow-2xl shadow-gray-600 "
+                  className="date"
                   minDate={new Date()}
                 />
               )}
             </div>
-            <div className="flex rounded-md w-sm cursor-pointer text-center px-0 py-3 items-center hover:bg-orange-500 hover:duration-200 hover:text-teal-100 border-r-2 border-orange-500">
-              <GiPerson className="text-gray-400 space-x-2" size={30} />{" "}
-              <span onMouseEnter={() => setOpenOptions(!openOptions)}>
-                {`${options.adult} Adult - ${options.children} Children - ${options.room} Room`}
-              </span>
+            <div className="headerSearchItem py-4">
+              <FontAwesomeIcon icon={faPerson} className="headerIcon" />
+              <span
+                onClick={() => setOpenOptions(!openOptions)}
+                className="headerSearchText"
+              >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
               {openOptions && (
-                <div className=" flex-col absolute top-16 bg-white space-x-1 text-gray-500 py-2 w-30 mr-2 shadow-2xl shadow-gray-600">
-                  <div className="flex justify-between mx-4 space-x-1 ">
+                <div className="options">
+                  <div className="optionItem">
                     <span className="optionText">Adult</span>
-                    <div className="flex items-center gap-1 text-black text-lg">
+                    <div className="optionCounter">
                       <button
                         disabled={options.adult <= 1}
+                        className="optionCounterButton"
                         onClick={() => handleOption("adult", "d")}
-                        className="bg-gray-200 border-2 hover:bg-gray-800 hover:text-yellow-50 border-gray-700 text-black px-2 m-2"
                       >
                         -
                       </button>
@@ -159,22 +163,20 @@ const Header = ({ type }) => {
                         {options.adult}
                       </span>
                       <button
-                        type="button"
+                        className="optionCounterButton"
                         onClick={() => handleOption("adult", "i")}
-                        className="bg-gray-200 border-2 hover:bg-gray-800 hover:text-yellow-50 border-gray-700 text-black px-2 m-2"
                       >
                         +
                       </button>
                     </div>
                   </div>
-                  <div className="flex justify-between mx-4">
+                  <div className="optionItem">
                     <span className="optionText">Children</span>
-                    <div className="flex items-center gap-1 text-black text-lg">
+                    <div className="optionCounter">
                       <button
-                        type="button"
                         disabled={options.children <= 0}
+                        className="optionCounterButton"
                         onClick={() => handleOption("children", "d")}
-                        className="bg-gray-200 border-2 hover:bg-gray-800 hover:text-yellow-50 border-gray-700 text-black px-2 m-2"
                       >
                         -
                       </button>
@@ -182,22 +184,20 @@ const Header = ({ type }) => {
                         {options.children}
                       </span>
                       <button
+                        className="optionCounterButton"
                         onClick={() => handleOption("children", "i")}
-                        type="button"
-                        className="bg-gray-200 border-2 hover:bg-gray-800 hover:text-yellow-50 border-gray-700 text-black px-2 m-2"
                       >
                         +
                       </button>
                     </div>
                   </div>
-                  <div className="flex justify-between mx-4">
+                  <div className="optionItem">
                     <span className="optionText">Room</span>
-                    <div className="flex items-center gap-1 text-black text-lg">
+                    <div className="optionCounter">
                       <button
-                        type="button"
                         disabled={options.room <= 1}
+                        className="optionCounterButton"
                         onClick={() => handleOption("room", "d")}
-                        className="bg-gray-200 border-2 hover:bg-gray-800 hover:text-yellow-50 border-gray-700 text-black px-2 m-2"
                       >
                         -
                       </button>
@@ -205,9 +205,8 @@ const Header = ({ type }) => {
                         {options.room}
                       </span>
                       <button
-                        type="button"
+                        className="optionCounterButton"
                         onClick={() => handleOption("room", "i")}
-                        className="bg-gray-200 border-2 hover:bg-gray-800 hover:text-yellow-50 border-gray-700 text-black px-2 m-2"
                       >
                         +
                       </button>
@@ -216,9 +215,9 @@ const Header = ({ type }) => {
                 </div>
               )}
             </div>
-            <div className="flex rounded-md w-sm text-center cursor-pointer py-2 items-center">
-              <button className=" p-2 px-4" onClick={handleSearch}>
-                <GoSearch size={40} />
+            <div className="headerSearchItem">
+              <button className="headerBtn" onClick={handleSearch}>
+                Search
               </button>
             </div>
           </div>
